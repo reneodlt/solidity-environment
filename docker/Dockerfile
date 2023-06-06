@@ -14,7 +14,13 @@ RUN npm install -g solc
 
 RUN npm install --save-dev -g jest
 
-RUN yarn add --dev jest-junit
+RUN npm install chai
+
+RUN npm install -g chai chai-as-promised
+
+RUN npm install -g @openzeppelin/contracts
+
+#RUN yarn add --dev jest-junit
 
 #RUN npm install truffle-plugin-junit-reporter --save-dev
 
@@ -39,8 +45,12 @@ EXPOSE 8545
 # At the end, set the user to use when running this image
 # USER node
 
+RUN npm install chai
+
 #CMD ganache-cli & sleep 5 && npm test
 # This version is currently working
 CMD ganache-cli > /dev/null & sleep 5 && truffle compile && truffle migrate && npm test
+
+
 #CMD ganache-cli > /dev/null & sleep 5 && truffle compile && truffle migrate && sleep 1200
 #CMD sleep 1200
