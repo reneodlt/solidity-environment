@@ -20,6 +20,7 @@ RUN npm install -g chai chai-as-promised
 
 RUN npm install -g @openzeppelin/contracts
 
+
 #RUN yarn add --dev jest-junit
 
 #RUN npm install truffle-plugin-junit-reporter --save-dev
@@ -39,16 +40,13 @@ COPY --chown=node:node . .
 
 RUN chown node:node ./build
 
-# Expose port 8545 for Ganache CLI
 EXPOSE 8545
 
-# At the end, set the user to use when running this image
-# USER node
+RUN npm install chai chai-bn
+RUN npm install @openzeppelin/test-helpers
 
-RUN npm install chai
+USER node
 
-#CMD ganache-cli & sleep 5 && npm test
-# This version is currently working
 CMD ganache-cli > /dev/null & sleep 5 && truffle compile && truffle migrate && npm test
 
 
