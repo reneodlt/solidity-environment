@@ -12,6 +12,12 @@ RUN npm install -g ganache-cli
 # Install Solc (Solidity Compiler) globally
 RUN npm install -g solc
 
+RUN npm install --save-dev -g jest
+
+RUN yarn add --dev jest-junit
+
+#RUN npm install truffle-plugin-junit-reporter --save-dev
+
 # Add `node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
@@ -31,10 +37,10 @@ RUN chown node:node ./build
 EXPOSE 8545
 
 # At the end, set the user to use when running this image
-USER node
+# USER node
 
 #CMD ganache-cli & sleep 5 && npm test
-
-#CMD ganache-cli > /dev/null && sleep 5 && truffle compile && truffle migrate && npm test
-
-CMD sleep 1200
+# This version is currently working
+CMD ganache-cli > /dev/null & sleep 5 && truffle compile && truffle migrate && npm test
+#CMD ganache-cli > /dev/null & sleep 5 && truffle compile && truffle migrate && sleep 1200
+#CMD sleep 1200

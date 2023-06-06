@@ -8,6 +8,10 @@ module.exports = {
             network_id: "*" // Match any network id
         }
     },
+
+    plugins: [
+    ],
+
     compilers: {
         solc: {
             version: "0.8.3"
