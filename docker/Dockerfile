@@ -20,6 +20,8 @@ RUN npm install -g chai chai-as-promised
 
 RUN npm install -g @openzeppelin/contracts
 
+RUN npm install -g --save-dev solhint
+
 
 #RUN yarn add --dev jest-junit
 
@@ -47,7 +49,7 @@ RUN npm install @openzeppelin/test-helpers
 
 USER node
 
-CMD ganache-cli > /dev/null & sleep 5 && truffle compile && truffle migrate && npm test
+CMD ganache-cli > /dev/null & sleep 5 && truffle compile && truffle migrate && npm test && npm run lint
 
 
 #CMD ganache-cli > /dev/null & sleep 5 && truffle compile && truffle migrate && sleep 1200
