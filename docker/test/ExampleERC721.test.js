@@ -1,4 +1,5 @@
-// test/MyNFT.test.js
+// SPDX-License-Identifier: MIT
+
 
 const ExampleERC721 = artifacts.require('ExampleERC721');
 

@@ -1,4 +1,4 @@
-// test/ExampleERC20.test.js
+// SPDX-License-Identifier: MIT
 
 const ExampleERC20 = artifacts.require('ExampleERC20');
 const { expect } = require('chai');

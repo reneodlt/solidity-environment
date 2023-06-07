@@ -1,4 +1,4 @@
-// test/TestSimpleStorage.js
+// SPDX-License-Identifier: MIT
 
 const SimpleStorage = artifacts.require("SimpleStorage");
 
