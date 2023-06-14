@@ -20,7 +20,7 @@ contract PurchasableNFT is ERC721, Ownable {
     }
 
     function purchaseNFT(address recipient) public {
-        require(erc20Contract.balanceOf(msg.sender) >= tokenPrice, "Not enough tkns to purchase NFT");
+        require(erc20Contract.balanceOf(msg.sender) >= tokenPrice, "Not enough tkns to purchase NFT"); // Keep message to < 32 chars to avoid excess gas fees and lint warning.
 
         // Transfer tokens to contract owner
         erc20Contract.transferFrom(msg.sender, owner(), tokenPrice);
